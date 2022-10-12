@@ -1,0 +1,48 @@
+
+	if (index<0)
+	{	
+		throw "invalid index";
+	}
+
+	if (index <=size-1)
+	{
+		if (elements[index] == NULL)
+		{
+			//*elements[index] = element;
+			elements[index] = new T(element);
+		}	
+	
+		else 
+		{
+			if (elements[size-1] ==NULL)
+			{
+				for (int i = size-1; i<index; i--)
+				{
+					elements[i] = elements[i-1];
+				}
+				elements[index] = new T(element);
+				//*elements[index] = element;
+			}
+			else 
+			{	
+				for(int i= size-1;i>index-1;i--)
+					{
+						elements[i] = elements[i-1];
+					}
+					elements[index]=new T(element);
+			}
+			
+		}
+	}
+	else 
+	{
+		resize(index+1);
+		for (int i = size-1; i<index; i--)
+		{
+			elements[i] = elements[i-1];
+		}
+		elements[index] = new T(element);
+		//*elements[index] = element;
+		
+	}
+	
